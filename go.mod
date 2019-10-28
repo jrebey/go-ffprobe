@@ -1,3 +1,3 @@
-module github.com/vansante/go-ffprobe
+module github.com/jrebey/go-ffprobe
 
 go 1.12
