@@ -6,6 +6,7 @@ import (
 	"encoding/json"
 	"errors"
 	"os/exec"
+	"syscall"
 	"time"
 )
 
@@ -45,6 +46,7 @@ func GetProbeDataContext(ctx context.Context, filePath string) (data *ProbeData,
 		"-show_streams",
 		filePath,
 	)
+	cmd.SysProcAttr = &syscall.SysProcAttr{HideWindow: true}
 
 	var outputBuf bytes.Buffer
 	cmd.Stdout = &outputBuf
